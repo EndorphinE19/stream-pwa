@@ -23,6 +23,7 @@ export default {
 .banners-control-mobile__title {
     width: 33%;
     text-align: left;
+    font-size: 20px;
 }
 .banners-control-mobile__qr {
     width: 33%;

@@ -34,6 +34,7 @@ export default {
 }
 .banners-info__title {
     padding-bottom: 10px;
+    font-size: 20px;
 }
 .banners-info__subtitle {
     font-family:arial,sans-serif,Helvetica;

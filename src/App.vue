@@ -1,16 +1,12 @@
 <template>
   <div id="app">
-    <broadcast-waiting />
+    <router-view />
   </div>
 </template>
 
 <script>
-import BroadcastWaiting from './components/BroadcastWaiting'
 export default {
-  name: 'App',
-  components: {
-    BroadcastWaiting
-  }
+  name: 'App'
 };
 </script>
 <style>
@@ -22,5 +18,22 @@ export default {
 .img {
     width: 100%;
     height: 100vh;
+}
+.mobile-wrapper {
+  margin: 0 auto;
+  max-width: 360px;
+  width: 100%;
+}
+.indent {
+  padding: 15px;
+}
+.width-100 {
+  width: 100%;
+}
+.padding-bottom {
+  padding-bottom: 30px;
+}
+.padding-top {
+  padding-top: 30px;
 }
 </style>

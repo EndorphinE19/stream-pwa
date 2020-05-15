@@ -1,6 +1,5 @@
 <template>
     <div class="available-broadcasts width-100 padding-bottom">
-        {{this.GET_STATE_USER.data.data.states}}
         <h4>Список доступных трансляций</h4>
         <div class="available-broadcasts__list">
             <div class="available-broadcasts__broadcast broadcast" v-for="item in this.GET_STATE_USER.data.data.streams" :key="item.id">

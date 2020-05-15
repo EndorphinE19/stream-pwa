@@ -2,7 +2,6 @@
     <div
      class="volumeTV width-100 padding-bottom">
         <b-field v-on:click="alerts()" class="volumeTV__volume" label="Громкость трасляции на ТВ">
-            {{this.GET_STATE_USER.data.data.states[0]}}
             <div
              @mousedown="updateVolume({id:currentId, volume:volume, current_stream:currentStream})"
              @mouseup="updateVolume({id:currentId, volume:volume, current_stream:currentStream})">
@@ -11,7 +10,6 @@
                 v-model="volume"
                 :value="currentVolume">
                 </b-slider>
-                {{currentVolume}}
              </div>
         </b-field>
     </div>
@@ -41,9 +39,13 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['UPDATE_VOLUME']),
-        updateVolume(data) {
+        ...mapActions(['GET_USER_SYNC', 'UPDATE_VOLUME']),
+
+        async updateVolume(data) {
             this.UPDATE_VOLUME(data)
+            .then(async res => {
+                this.GET_USER_SYNC()
+            })
         }
     }
 }

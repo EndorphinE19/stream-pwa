@@ -27,6 +27,10 @@ export default {
 .indent {
   padding: 15px;
 }
+.telegram-link {
+  text-decoration: none;
+  color: white;
+}
 .width-100 {
   width: 100%;
 }

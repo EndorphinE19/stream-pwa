@@ -1,6 +1,6 @@
 <template>
     <div class="name width-100 padding-bottom">
-        evgeny krivinos
+        evgeny krivonos
     </div>
 </template>
 <script>

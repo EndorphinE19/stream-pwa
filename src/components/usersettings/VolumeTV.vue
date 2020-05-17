@@ -1,7 +1,7 @@
 <template>
     <div
      class="volumeTV width-100 padding-bottom">
-        <b-field v-on:click="alerts()" class="volumeTV__volume" label="Громкость трасляции на ТВ">
+        <b-field class="volumeTV__volume" label="Громкость трасляции на ТВ">
             <div
              @mousedown="updateVolume({id:currentId, volume:volume, current_stream:currentStream})"
              @mouseup="updateVolume({id:currentId, volume:volume, current_stream:currentStream})">
@@ -26,13 +26,14 @@ export default {
     },
     computed: {
         ...mapGetters(['GET_STATE_USER']),
+        properties() {
+            return eval('({obj:' + this.GET_STATE_USER.data.data.states[0].properties + '})')
+        },
         currentVolume() {
-            const properties = eval('({obj:' + this.GET_STATE_USER.data.data.states[0].properties + '})');
-            return properties.obj.volume
+            return this.properties.obj.volume
         },
         currentStream() {
-            const properties = eval('({obj:' + this.GET_STATE_USER.data.data.states[0].properties + '})');
-            return properties.obj.current_stream
+            return this.properties.obj.current_stream
         },
         currentId() {
             return this.GET_STATE_USER.data.data.states[0].id
@@ -43,7 +44,7 @@ export default {
 
         async updateVolume(data) {
             this.UPDATE_VOLUME(data)
-            .then(async res => {
+            .then(async () => {
                 this.GET_USER_SYNC()
             })
         }
